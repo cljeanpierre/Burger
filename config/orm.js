@@ -28,8 +28,7 @@ function objToSql(ob) {
           value = "'" + value + "'";
         }
     
-  // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-  // e.g. {sleepy: true} => ["sleepy=true"]
+   // e.g. {devoured: true} => ["devoured=true"]
         arr.push(key + "=" + value);
       }
     }
@@ -38,7 +37,7 @@ function objToSql(ob) {
     return arr.toString();
   }
   
-  // Object for all our SQL statement functions.
+  // Object for all SQL statement functions.
   var orm = {
     all: function(tableInput, cb) {
       var queryString = "SELECT * FROM " + tableInput + ";";
@@ -71,7 +70,6 @@ function objToSql(ob) {
       });
     },
     
-    // An example of objColVals would be {name: panther, sleepy: true}
     update: function(table, objColVals, condition, cb) {
       var queryString = "UPDATE " + table;
   
