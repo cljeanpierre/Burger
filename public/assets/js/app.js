@@ -22,7 +22,7 @@ $(document).ready(function() {
         );
     });
 
-    //function to update 
+
     $(".eat-burger").on("click", function(event) {
         var id = $(this).data("id");
         var confirmEat = $(this).data("neweaten") === false;
