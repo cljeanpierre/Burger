@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
     $(".create-form").on("submit", function(event) {
         event.preventDefault();
