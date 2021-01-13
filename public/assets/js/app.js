@@ -26,9 +26,12 @@ $(function() {
     $(".eat-burger").on("click", function(event) {
         var id = $(this).data("id");
         var confirmEat = $(this).data("neweaten") === false;
-        var confirmEatState = {devour: confirmEat};
-        console.log("ID: " + id + "eaten: " + 
-confirmEatState.devour);
+
+        var confirmEatState = {
+            devour: confirmEat
+        };
+//         console.log("id: " + id + "eaten: " + 
+// confirmEatState.devour);
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
