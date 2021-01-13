@@ -1,38 +1,53 @@
-<h1>Burgers</h1>
-
-<h2>Devour the Burgers!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers that have been devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not Eaten
-  </div>
-
-  <button type="submit">Add a Burger</button>
-</form>
+<div class="container">
+  <div class="jumbotron text-center m-3">
+    <h1 class="display-4">Burgers: To Eat or Not to Eat?</h1>
+    <hr class="my-4">
+    <div class="row d-flex justify-content-around">
+      <div class="col-lg">
+        <div class="card">
+          <div class="card-header">
+            Burgers to be Eaten
+          </div>
+          <ul class="list-group list-group-flush m-3">
+            {{#each burgers}}
+            {{#unless devoured}}
+            {{> burgers/burger devour=false}}
+            {{/unless}}
+            {{/each}}
+          </ul>
+      </div>
+      </div>
+      <div class="col-lg">
+        <div class="card">
+          <div class="card-header">
+            Burgers Eaten
+          </div>
+          <ul>
+            {{#each burgers}}
+            {{#if devoured}}
+            {{> burgers/burger devour=true}}
+            {{/if}}
+            {{/each}}
+          </ul>
+</div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center m-3">
+            <div class="col-lg">
+            <div class="card">
+                <div class="card-header">
+                    More Burgers?  Add a New Burger Here
+                </div>
+                <div class="card-body">
+                    <form class="create-form">
+                        <div class="form-group">
+                            <textarea class="form-control text-center" id="bur" row="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div> 
